@@ -1,6 +1,6 @@
-# 📝 Sistema de Notas — TP2
+# 📝 Sistema de Notas — TP3
 
-Aplicación fullstack para gestionar notas personales. Permite crear, visualizar, editar, eliminar y buscar notas en tiempo real.
+Aplicación fullstack para gestionar notas personales. Permite crear, visualizar, editar, eliminar y buscar notas en tiempo real. Incorpora estado global mediante Context API y useReducer.
 
 ---
 
@@ -8,6 +8,8 @@ Aplicación fullstack para gestionar notas personales. Permite crear, visualizar
 
 **Frontend**
 - React + Vite
+- Context API (createContext, useContext)
+- useReducer
 - CSS (estilos propios)
 
 **Backend**
@@ -24,6 +26,23 @@ Aplicación fullstack para gestionar notas personales. Permite crear, visualizar
 notas-app/
 ├── client/       → Frontend en React
 └── server/       → Backend en Node.js + Express
+```
+
+### Estructura del cliente
+
+```
+client/src/
+├── context/
+│   └── NotesContext.jsx   → Contexto global, Provider y useReducer
+├── components/
+│   ├── NoteList.jsx
+│   ├── NoteItem.jsx
+│   ├── NoteForm.jsx
+│   └── SearchBar.jsx
+├── services/
+│   └── api.js             → Llamadas HTTP al backend
+├── App.jsx
+└── main.jsx
 ```
 
 ---
@@ -91,6 +110,33 @@ VITE_API_URL=http://localhost:3001/api/notes
 
 ---
 
+## 🌐 Estado global
+
+El estado de la aplicación es manejado mediante Context API y useReducer en `src/context/NotesContext.jsx`.
+
+### Acciones del reducer
+
+| Acción | Descripción |
+|--------|-------------|
+| `SET_LOADING` | Activa o desactiva el estado de carga |
+| `SET_ERROR` | Guarda un mensaje de error |
+| `SET_NOTES` | Carga todas las notas desde el backend |
+| `ADD_NOTE` | Agrega una nueva nota al estado |
+| `EDIT_NOTE` | Actualiza una nota existente |
+| `DELETE_NOTE` | Elimina una nota del estado |
+
+### Uso en componentes
+
+Cualquier componente puede acceder al estado global con:
+
+```javascript
+import { useNotes } from '../context/NotesContext.jsx';
+
+const { notes, loading, error, addNote, editNote, removeNote } = useNotes();
+```
+
+---
+
 ## 📌 Endpoints de la API
 
 | Método | Endpoint | Descripción |
@@ -108,7 +154,8 @@ VITE_API_URL=http://localhost:3001/api/notes
 - Crear notas con título, contenido y categoría opcional
 - Listar todas las notas
 - Editar notas existentes
-- Eliminar notas con confirmación visual
+- Eliminar notas
 - Búsqueda en tiempo real con resaltado de coincidencias
 - Estados de carga y error
 - Cancelar edición en cualquier momento
+- Estado global con Context API y useReducer
