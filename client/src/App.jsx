@@ -1,5 +1,6 @@
+// src/App.jsx
 import { useState } from 'react';
-import useNotes from './hooks/useNotes.js';
+import { useNotes } from './context/NotesContext.jsx';
 import NoteList from './components/NoteList.jsx';
 import NoteForm from './components/NoteForm.jsx';
 import SearchBar from './components/SearchBar.jsx';
@@ -23,13 +24,13 @@ const App = () => {
   };
 
   const handleCancel = () => {
-  setNoteToEdit(null);
-};
+    setNoteToEdit(null);
+  };
 
-const filteredNotes = notes.filter(note =>
-  (note.title || '').toLowerCase().includes(query.toLowerCase()) ||
-  (note.content || '').toLowerCase().includes(query.toLowerCase())
-);
+  const filteredNotes = notes.filter(note =>
+    (note.title || '').toLowerCase().includes(query.toLowerCase()) ||
+    (note.content || '').toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <div>
@@ -40,12 +41,12 @@ const filteredNotes = notes.filter(note =>
       {error && <p className="error-message">{error}</p>}
       {!error && (
         <NoteList
-        notes={filteredNotes}
-        onEdit={handleEdit}
-        onDelete={removeNote}
-        query={query}
-  />
-)}
+          notes={filteredNotes}
+          onEdit={handleEdit}
+          onDelete={removeNote}
+          query={query}
+        />
+      )}
     </div>
   );
 };
