@@ -41,12 +41,17 @@ const NoteForm =({ onSubmit, noteToEdit, onCancel }) => {
       required
     />
     <div className="note-form-row">
-  <input
-    type="text"
-    placeholder="Categoría (opcional)"
-    value={category}
-    onChange={(e) => setCategory(e.target.value)}
-  />
+  <select
+  value={category}
+  onChange={(e) => setCategory(e.target.value)}
+>
+    <option value="">Sin categoría</option>
+    <option value="Personal">Personal</option>
+    <option value="Trabajo">Trabajo</option>
+    <option value="Estudio">Estudio</option>
+    <option value="Ideas">Ideas</option>
+    <option value="Otro">Otro</option>
+</select>
   {noteToEdit && (
     <button type="button" className="btn-cancel" onClick={onCancel}>
       Cancelar

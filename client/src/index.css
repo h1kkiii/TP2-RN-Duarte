@@ -210,3 +210,145 @@ mark {
   background-color: #ff4a4a;
   color: #0f1923;
 }
+
+select {
+  background-color: transparent;
+  border: 1px solid #1e3a5f;
+  border-radius: 6px;
+  color: #e0e6f0;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #4a9eff;
+}
+
+select option {
+  background-color: #0f1923;
+  color: #e0e6f0;
+}
+
+.category-title {
+  font-size: 1rem;
+  color: #4a6080;
+  border-bottom: 1px solid #1e3a5f;
+  padding-bottom: 0.4rem;
+  margin: 1.5rem 0 0.75rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: #4a6080;
+  font-size: 0.95rem;
+}
+
+.filter-bar select {
+  width: auto;
+}
+
+body.light {
+  background-color: #f0f4f8;
+  color: #1a2a3a;
+}
+
+body.light input[type="text"],
+body.light textarea,
+body.light select {
+  border-color: #b0c4d8;
+  color: #1a2a3a;
+}
+
+body.light input[type="text"]:focus,
+body.light textarea:focus,
+body.light select:focus {
+  border-color: #2a6abf;
+}
+
+body.light input::placeholder,
+body.light textarea::placeholder {
+  color: #7a9ab8;
+}
+
+body.light .note-item {
+  border-color: #b0c4d8;
+}
+
+body.light .note-item:hover {
+  border-color: #2a6abf;
+}
+
+body.light .note-form {
+  border-color: #b0c4d8;
+}
+
+body.light h1,
+body.light h3 {
+  color: #2a6abf;
+}
+
+body.light .category-title {
+  color: #7a9ab8;
+  border-color: #b0c4d8;
+}
+
+body.light button {
+  border-color: #2a6abf;
+  color: #2a6abf;
+}
+
+body.light button:hover {
+  background-color: #2a6abf;
+  color: #f0f4f8;
+}
+
+body.light .btn-delete {
+  border-color: #cc3333;
+  color: #cc3333;
+}
+
+body.light .btn-delete:hover {
+  background-color: #cc3333;
+  color: #f0f4f8;
+}
+
+body.light .btn-cancel {
+  border-color: #cc3333;
+  color: #cc3333;
+}
+
+body.light .btn-cancel:hover {
+  background-color: #cc3333;
+  color: #f0f4f8;
+}
+
+body.light .note-item span {
+  border-color: #b0c4d8;
+  color: #2a6abf;
+}
+
+body.light .note-item small {
+  color: #7a9ab8;
+}
+
+body.light .note-item p {
+  color: #3a5a7a;
+}
+
+body.light select option {
+  background-color: #f0f4f8;
+  color: #1a2a3a;
+}
+
+body.light mark {
+  color: #2a6abf;
+  border-color: #2a6abf;
+}
