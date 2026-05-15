@@ -1,19 +1,5 @@
-import { Sequelize } from "sequelize";
-import 'dotenv/config';
+import { PrismaConfig } from '../generated/prisma/index.js'
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: process.env.DB_HOST,
-    dialect: "mysql",
-    logging: false,
-    dialectOptions: {
-      supportBigNumbers: true,
-      bigNumberStrings: true
-    }
-  }
-);
+const prisma = new PrismaClient();
 
-export default sequelize;
+export default prisma;
