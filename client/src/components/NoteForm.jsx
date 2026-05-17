@@ -25,8 +25,8 @@ const NoteForm =({ onSubmit, noteToEdit, onCancel }) => {
     setCategory('');
   };
 
-  return (
-    <form className="note-form" onSubmit={handleSubmit}>
+return (
+  <form className="note-form" onSubmit={handleSubmit}>
     <input
       type="text"
       placeholder="Título"
@@ -41,23 +41,28 @@ const NoteForm =({ onSubmit, noteToEdit, onCancel }) => {
       required
     />
     <div className="note-form-row">
-  <input
-    type="text"
-    placeholder="Categoría (opcional)"
-    value={category}
-    onChange={(e) => setCategory(e.target.value)}
-  />
-  {noteToEdit && (
-    <button type="button" className="btn-cancel" onClick={onCancel}>
-      Cancelar
-    </button>
-  )}
-  <button type="submit">
-    {noteToEdit ? 'Actualizar' : 'Crear'} nota
-  </button>
-</div>
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+      >
+        <option value="">Sin categoría</option>
+        <option value="Personal">Personal</option>
+        <option value="Trabajo">Trabajo</option>
+        <option value="Estudio">Estudio</option>
+        <option value="Ideas">Ideas</option>
+        <option value="Otro">Otro</option>
+      </select>
+      {noteToEdit && (
+        <button type="button" className="btn-cancel" onClick={onCancel}>
+          Cancelar
+        </button>
+      )}
+      <button type="submit">
+        {noteToEdit ? 'Actualizar' : 'Crear'} nota
+      </button>
+    </div>
   </form>
-  );
+);
 };
 
 export default NoteForm;

@@ -32,3 +32,27 @@ export const createNote = async (req, res) => {
     res.status(500).json({ message: 'Error al crear la nota.' });
   };
 };
+
+export const updateNote = async (req, res) => {
+  try {
+    const { title, content, category } = req.body;
+    const note = await prisma.note.update({
+      where: { id: Number(req.params.id) },
+      data: { title, content, category }
+    });
+    res.json(note);
+  } catch {
+    res.status(500).json({ message: 'Error al actualizar la nota.' });
+  }
+};
+
+export const deleteNote = async (req, res) => {
+  try {
+    await prisma.note.delete({
+      where: { id: Number(req.params.id) }
+    });
+    res.json({ message: 'Nota eliminada correctamente.' });
+  } catch {
+    res.status(500).json({ message: 'Error al eliminar la nota.' });
+  }
+};
