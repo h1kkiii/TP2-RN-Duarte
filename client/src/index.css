@@ -312,3 +312,112 @@ body.light .modal {
   background-color: #0f1923;
   color: #e0e6f0;
 }
+
+.btn-new-note {
+  margin-bottom: 1.5rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid #4a9eff;
+  border-radius: 6px;
+  color: #4a9eff;
+  background-color: transparent;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-new-note:hover {
+  background-color: #4a9eff;
+  color: #0f1923;
+}
+
+.btn-theme {
+  border-color: #4a6080;
+  color: #4a6080;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-theme:hover {
+  background-color: #4a6080;
+  color: #0f1923;
+}
+
+body.light {
+  background-color: #f0f4f8;
+  color: #1a2a3a;
+}
+
+body.light input[type="text"],
+body.light textarea,
+body.light select {
+  border-color: #b0c4d8;
+  color: #1a2a3a;
+}
+
+body.light input[type="text"]:focus,
+body.light textarea:focus,
+body.light select:focus {
+  border-color: #2a6abf;
+}
+
+body.light input::placeholder,
+body.light textarea::placeholder {
+  color: #7a9ab8;
+}
+
+body.light .note-item {
+  border-color: #b0c4d8;
+}
+
+body.light .note-item:hover {
+  border-color: #2a6abf;
+}
+
+body.light .note-form {
+  border-color: #b0c4d8;
+}
+
+body.light h1,
+body.light h3 {
+  color: #2a6abf;
+}
+
+body.light .category-title {
+  color: #7a9ab8;
+  border-color: #b0c4d8;
+}
+
+body.light button {
+  border-color: #2a6abf;
+  color: #2a6abf;
+}
+
+body.light button:hover {
+  background-color: #2a6abf;
+  color: #f0f4f8;
+}
+
+body.light .btn-delete {
+  border-color: #cc3333;
+  color: #cc3333;
+}
+
+body.light .btn-delete:hover {
+  background-color: #cc3333;
+  color: #f0f4f8;
+}
+
+body.light .btn-cancel {
+  border-color: #cc3333;
+  color: #cc3333;
+}
+
+body.light .btn-cancel:hover {
+  background-color: #cc3333;
+  color: #f0f4f8;
+}
+
+body.light .note-item span {
+  border-color: #b0c4d8;
+  color: #2a6abf;
+}

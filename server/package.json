@@ -13,7 +13,9 @@
     "@prisma/client": "^5.22.0",
     "cors": "^2.8.6",
     "express": "^5.2.1",
-    "prisma": "^5.22.0"
+    "multer": "^2.1.1",
+    "prisma": "^5.22.0",
+    "sharp": "^0.34.5"
   },
   "type": "module",
   "devDependencies": {

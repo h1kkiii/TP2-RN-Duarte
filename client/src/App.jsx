@@ -4,7 +4,7 @@ import { useNotes } from './context/NotesContext.jsx';
 import NoteList from './components/NoteList.jsx';
 import NoteForm from './components/NoteForm.jsx';
 import SearchBar from './components/SearchBar.jsx';
-//import ThemeToggle from './components/ThemeToggle.jsx';
+import ThemeToggle from './components/ThemeToggle.jsx';
 import ConfirmModal from './components/ConfirmModal.jsx';
 import EditModal from './components/EditModal.jsx';
 
@@ -15,14 +15,19 @@ const App = () => {
   const [query, setQuery] = useState('');
   const [filterBy, setFilterBy] = useState('category');
   const [selectedCategory, setSelectedCategory] = useState('');
-//  const [isDark, setIsDark] = useState(true);
+  const [showForm, setShowForm] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
-/*  const handleToggleTheme = useCallback(() => {
-    setIsDark(prev => {
-      document.body.classList.toggle('light', prev);
-      return !prev;
-    });
-  }, []);*/
+const handleToggleTheme = useCallback(() => {
+  setIsDark(prev => {
+    if (prev) {
+      document.body.classList.add('light');
+    } else {
+      document.body.classList.remove('light');
+    }
+    return !prev;
+  });
+}, []);
 
   const handleEdit = useCallback((note) => {
     setNoteToEdit(note);
@@ -89,8 +94,12 @@ const App = () => {
   return (
     <div>
       <h1>Mis notas</h1>
+      <ThemeToggle isDark={isDark} onToggle={handleToggleTheme} />
       <SearchBar onSearch={setQuery} />
-      <NoteForm onSubmit={handleSubmit} />
+      <button className="btn-new-note" onClick={() => setShowForm(prev => !prev)}>
+      {showForm ? '✕ Cancelar' : '+ Nueva nota'}
+      </button>
+      {showForm && <NoteForm onSubmit={handleSubmit} />}
       {loading && <p className="status-message">Cargando...</p>}
       {error && <p className="error-message">{error}</p>}
       <div className="filter-bar">
