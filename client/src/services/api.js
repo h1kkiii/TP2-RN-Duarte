@@ -10,20 +10,18 @@ export const getNoteById = async (id) => {
   return res.json();
 };
 
-export const createNote = async (note) => {
+export const createNote = async (formData) => {
   const res = await fetch(BASE_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json'},
-    body: JSON.stringify(note)
+    body: formData
   });
   return res.json();
 }
 
-export const updateNote = async (id, note) => {
+export const updateNote = async (id, formData) => {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json'},
-    body: JSON.stringify(note)
+    body: formData
   });
   return res.json();
 };

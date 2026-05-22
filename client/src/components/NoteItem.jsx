@@ -13,6 +13,13 @@ const NoteItem = ({ note, onEdit, onDelete, query }) => {
     <div className="note-item">
       <h3>{highlight(note.title, query)}</h3>
       <p>{highlight(note.content, query)}</p>
+      {note.image && (
+        <img
+          src={`http://localhost:3001/uploads/${note.image}`}
+          alt="imagen de la nota"
+          className="note-image"
+        />
+      )}
       {note.category && <span>{note.category}</span>}
       <div className="note-item-footer">
         {note.createdAt && <small>{new Date(note.createdAt).toLocaleDateString()}</small>}

@@ -1,5 +1,6 @@
 import multer from 'multer';
 import path from 'path';
+import sharp from 'sharp';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -22,10 +23,25 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-const upload = multer({
+export const upload = multer({
   storage,
   fileFilter,
   limites: { fileSize: 5 * 1024 * 1024 }
 });
 
-export default upload;
+export  const compressImage = async (req, res, next) => {
+  if (!req.file) return next();
+
+  const filename = `${Date.now()}-${path.parse(req.file.originalname).name}.webp`;
+  const outputPath = `uploads/${filename}`;
+
+  await sharp(req.file.buffer)
+  .resize({width: 1200, withoutEnlargement: true})
+  .webp({quality: 80})
+  .toFile(outputPath);
+
+  req.file.filename = filename;
+  req.file.path = outputPath;
+
+  next();
+};
